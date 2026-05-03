@@ -6,12 +6,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-
-app.use(cors({
-  origin: "*"
-}));
-app.use(express.json());
-
+app.use(cors());
+app.options("*", cors());
 // ─── Routes ───────────────────────────────────────────────
 const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projects');  // ← ADD THIS
