@@ -1,20 +1,15 @@
-// src/api/axios.js
-// Central Axios configuration
-// Every API call goes through here so we don't repeat the base URL
-
-import axios from 'axios';
+import axios from "axios";
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api', // Your backend URL
+  baseURL: "https://team-task-managerr-production.up.railway.app/api",
 });
 
-// Before every request, attach the JWT token from localStorage
-API.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
+API.interceptors.request.use((req) => {
+  const token = localStorage.getItem("token");
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    req.headers.Authorization = token;
   }
-  return config;
+  return req;
 });
 
 export default API;
