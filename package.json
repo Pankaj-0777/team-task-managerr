@@ -1,0 +1,13 @@
+{
+  "name": "team-task-manager-root",
+  "version": "1.0.0",
+  "scripts": {
+    "backend": "npm run dev --prefix backend",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^8.0.0",
+    "mongodb": "^7.2.0"
+  }
+}
